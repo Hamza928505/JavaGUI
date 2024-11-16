@@ -16,9 +16,11 @@ import java.util.HashSet;
 public class Model {
     
     private HashSet<DtoUser> users;
+    private DtoUser currentUser;
 
     public Model() {
         users = new HashSet<DtoUser>();
+        currentUser = new DtoUser();
     }
 
     public HashSet<DtoUser> getUsers() {
@@ -43,5 +45,14 @@ public class Model {
         }
         
     }
+
+    public DtoUser getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(DtoUser currentUser) {
+        this.currentUser = currentUser;
+    }
+    
     
 }

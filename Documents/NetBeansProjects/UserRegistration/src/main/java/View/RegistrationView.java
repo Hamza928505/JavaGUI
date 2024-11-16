@@ -113,5 +113,9 @@ public class RegistrationView extends JFrame{
     public void setPassword(PasswordFieldPanel password) {
         this.password = password;
     }
+    
+    public String getGenderSelection() {
+        return gender.getGroup().getSelection() == null ? "" : gender.getGroup().getSelection().toString();
+    }
 
 }

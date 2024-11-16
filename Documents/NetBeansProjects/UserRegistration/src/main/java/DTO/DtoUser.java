@@ -9,9 +9,19 @@ package DTO;
  * @author حمزة
  */
 public class DtoUser {
+    private static int id = 0;
     private String userName, password, fullName, gender, email, major, skills;
 
     public DtoUser() {
+        id++;
+    }
+
+    public static int getId() {
+        return id;
+    }
+
+    public static void setId(int id) {
+        DtoUser.id = id;
     }
 
     public String getUserName() {
@@ -93,16 +103,29 @@ public class DtoUser {
     }
     
     public String getMissingInfo() {
-        //String missingInfo = "Missing information : ";
         StringBuilder missingInfo = new StringBuilder("Missing information :\n");
         
         if(userName.equals("")) { missingInfo.append("UserName\n"); }
         if(password.equals("")) { missingInfo.append("Password\n"); }
         if(fullName.equals("")) { missingInfo.append("Full Name\n"); }
+        if(gender.equals("")) { missingInfo.append("Gender\n"); }
         if(email.equals("")) { missingInfo.append("Email\n"); }
         if(major.equals("")) { missingInfo.append("Major\n"); }
         if(skills.equals("")) { missingInfo.append("Skills"); }
         
         return missingInfo.toString();
+    }
+    
+    public String getUserInfo() {
+        String userinfo = id + "-"
+                + " User Name : " + userName 
+                + ", Password : " + password
+                + ", Full Name : " + fullName
+                + ", Gender : " + gender
+                + ", Email : " + email
+                + ", Major : " + major
+                + ", Skills : " + skills
+                +"\n";
+        return userinfo;
     }
 }

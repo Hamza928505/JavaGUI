@@ -28,6 +28,9 @@ public class RadioButtonPanel extends JPanel{
         this.option1.setFocusable(false);
         this.option2.setFocusable(false);
         
+        this.option1.setActionCommand(option1);
+        this.option2.setActionCommand(option2);
+        
         this.add(this.label);
         this.add(this.option1);
         this.add(this.option2);
