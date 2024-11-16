@@ -33,14 +33,23 @@ public class Controller {
         this.view.getRegisterButton().addActionListener(new CreateUser());
         //this.view.getRegisterButton().addActionListener(new HoverField());
 
+        FocusField focus = new FocusField();
+        this.view.getUserName().getTextField().addFocusListener(focus);
+        this.view.getPassword().getPasswordField().addFocusListener(focus);
+        this.view.getPassword().getConfirmPasswordField().addFocusListener(focus);
+        this.view.getFullName().getTextField().addFocusListener(focus);
+        this.view.getEmail().getTextField().addFocusListener(focus);
+        this.view.getMajor().getTextField().addFocusListener(focus);
+        this.view.getSkills().getTextField().addFocusListener(focus);
+        
         HoverField hover = new HoverField();
-        this.view.getUserName().getTextField().addFocusListener(hover);
-        this.view.getPassword().getPasswordField().addFocusListener(hover);
-        this.view.getPassword().getConfirmPasswordField().addFocusListener(hover);
-        this.view.getFullName().getTextField().addFocusListener(hover);
-        this.view.getEmail().getTextField().addFocusListener(hover);
-        this.view.getMajor().getTextField().addFocusListener(hover);
-        this.view.getSkills().getTextField().addFocusListener(hover);
+        this.view.getUserName().getTextField().addMouseListener(hover);
+        this.view.getPassword().getPasswordField().addMouseListener(hover);
+        this.view.getPassword().getConfirmPasswordField().addMouseListener(hover);
+        this.view.getFullName().getTextField().addMouseListener(hover);
+        this.view.getEmail().getTextField().addMouseListener(hover);
+        this.view.getMajor().getTextField().addMouseListener(hover);
+        this.view.getSkills().getTextField().addMouseListener(hover);
     }
 
     private class CreateUser implements ActionListener {
@@ -84,7 +93,7 @@ public class Controller {
         }
     }
 
-    private class HoverField implements FocusListener {
+    private class FocusField implements FocusListener {
 
         @Override
         public void focusGained(FocusEvent event) { 
@@ -125,5 +134,66 @@ public class Controller {
                 System.out.println("Error : " + e.getMessage());
             }
         }
+    }
+    
+    public class HoverField implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent event) {
+            try {
+                Object field = event.getSource();
+                
+                if(field instanceof JTextField textField) {
+                    textField.setBackground(Color.decode("#eeeeee"));
+                }
+                else if(field instanceof JPasswordField passwordField) {
+                    passwordField.setBackground(Color.decode("#eeeeee"));
+                }
+                else {
+                    throw new Exception("Unkonw focused item.");
+                }
+            }
+            catch(Exception e) {
+                System.out.println("Error : " + e.getMessage());
+            }
+        }
+
+        @Override
+        public void mouseExited(MouseEvent event) {
+            try {
+                Object field = event.getSource();
+                
+                if(field instanceof JTextField textField) {
+                    if(textField.isFocusOwner()) return;
+                    textField.setBackground(Color.white);
+                }
+                else if((field instanceof JPasswordField passwordField)) {
+                    if(passwordField.isFocusOwner()) return;
+                    passwordField.setBackground(Color.white);
+                }
+                else {
+                    throw new Exception("Unkonw focused item.");
+                }
+            }
+            catch(Exception e) {
+                System.out.println("Error : " + e.getMessage());
+            }
+        }
+        
     }
 }
