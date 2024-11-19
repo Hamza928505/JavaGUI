@@ -4,6 +4,7 @@
  */
 package View.Panels;
 
+import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -24,10 +25,23 @@ public class PasswordFieldPanel extends JPanel {
         this.confirmLabel = new JLabel(confirmLabel);
         this.confirmPasswordField = new JPasswordField(10);
 
-        this.add(this.passwordLabel);
-        this.add(this.passwordField);
-        this.add(this.confirmLabel);
-        this.add(this.confirmPasswordField);
+        this.setLayout(new GridLayout(2, 1));
+        
+        JPanel panel1 = new JPanel();
+        JPanel panel2 = new JPanel();
+        
+        //this.add(this.passwordLabel);
+        //this.add(this.passwordField);
+        panel1.add(this.passwordLabel);
+        panel1.add(this.passwordField);
+        
+        //this.add(this.confirmLabel);
+        //this.add(this.confirmPasswordField);
+        panel2.add(this.confirmLabel);
+        panel2.add(this.confirmPasswordField);
+        
+        this.add(panel1);
+        this.add(panel2);
     }
 
     public JLabel getPasswordLabel() {
