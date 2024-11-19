@@ -32,7 +32,7 @@ public class RegistrationView extends JFrame {
         email = new TextFieldPanel("Email:");
         major = new TextFieldPanel("Major:");
         skills = new TextFieldPanel("Skills:");
-        gender = new RadioButtonPanel("Gender", "Male", "Female");
+        gender = new RadioButtonPanel("Gender :", "Male", "Female");
         registerButton = new JButton("Register");
 
         // Set layout manager
@@ -47,16 +47,13 @@ public class RegistrationView extends JFrame {
         this.getContentPane().add(userName, gbc);
 
         gbc.gridy++;
-        this.getContentPane().add(password, gbc);
-
-        gbc.gridy++;
         this.getContentPane().add(fullName, gbc);
 
         gbc.gridy++;
-        this.getContentPane().add(gender, gbc);
+        this.getContentPane().add(email, gbc);
 
         gbc.gridy++;
-        this.getContentPane().add(email, gbc);
+        this.getContentPane().add(password, gbc);
 
         gbc.gridy++;
         this.getContentPane().add(major, gbc);
@@ -64,6 +61,8 @@ public class RegistrationView extends JFrame {
         gbc.gridy++;
         this.getContentPane().add(skills, gbc);
 
+        gbc.gridy++;
+        this.getContentPane().add(gender, gbc);
         // Add register button
         gbc.gridy++;
         gbc.anchor = GridBagConstraints.CENTER;

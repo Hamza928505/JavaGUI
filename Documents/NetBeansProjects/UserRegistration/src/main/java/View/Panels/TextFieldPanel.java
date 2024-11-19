@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package View.Panels;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
@@ -18,6 +20,10 @@ public class TextFieldPanel extends JPanel {
     public TextFieldPanel(String label) {
         this.label = new JLabel(label);
         this.textField = new JTextField(10);
+        
+        this.label.setPreferredSize(new Dimension(120, 20));
+        FlowLayout flowLayout = new FlowLayout(FlowLayout.LEFT, 30, 10);
+        this.setLayout(flowLayout);
         
         this.add(this.label);
         this.add(this.textField);
