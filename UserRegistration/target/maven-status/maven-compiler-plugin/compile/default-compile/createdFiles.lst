@@ -1,0 +1,15 @@
+View\Panels\RadioButtonPanel.class
+Model\Model.class
+RegistrationForm.class
+Controller\Controller.class
+View\Panels\TextFieldPanel.class
+DAL\File.class
+DTO\DtoUser.class
+View\Panels\PasswordFieldPanel.class
+com\mycompany\userregistration\UserRegistration.class
+Controller\Controller$CreateUser.class
+Controller\Controller$HoverField.class
+RegistrationForm$1.class
+Controller\Controller$FocusField.class
+View\RegistrationView.class
+Controller\Controller$ClickButtons.class
